@@ -117,17 +117,27 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(numInnings, callback) {
- function innings(){
-    let numInn = 0;
-    for(let i = 0; i < numInnings; i++){
-      let numInn = numInn++;
-      return numInn+1;
-    }
- }
-  function scores(){
-    return finalScore(inning);
+function scoreboard(inningNum, num){
+  function home(){
+    let score1 = 0;
+      for(let i = 0; i < num; i++){
+    score1 = score1 + inning();
   }
-return `Inning ${innings}: ${scores()}`
+  return score1
 }
-console.log(scoreboard(3))
+  function away(){
+    let score2 = 0;
+    for(let i = 0; i < num; i++){
+    score2 = score2 + inning();
+  }
+  return score2
+}
+  function innings(){
+    let innnum = 0;
+    for(let i = 0; i < num; i++){
+      return innnum+1
+    }
+  }
+  return `Inning ${innings}: ${away} - ${home}`
+}
+console.log(scoreboard(1))
