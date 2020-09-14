@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+      Closures let us put multiple functions together by writing code that can be identified throughout the entirety of our code and used later
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+        dansRoll and roesRoll are closures as they call on the higer function to run inorder to give them value
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+          when calling dansRoll, the name 'Dan' will always stay the same but the number rolled will change
 c. What is the lexical scope of `newRoll`? 
+        within personal dice and newRoll
 
 ### Task 3 - Stretch Goals
 

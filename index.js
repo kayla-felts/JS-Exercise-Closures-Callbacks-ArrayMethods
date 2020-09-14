@@ -27,11 +27,13 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *      counter1 uses closures, counter2 declares the variable outside of the function
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ *       coutn1, becaue the function reurns another function and can be used over and over
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *        counter1 can be used to keep track of many different counts throughout the code
 */
 
 // counter1 code
@@ -43,24 +45,21 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
-
 // counter2 code
-let count = 0;
+let count = 0
 
 function counter2() {
   return count++;
 }
 
-
 /* Task 2: inning() 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  return Math.floor(Math.random()*3)
 }
+console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -76,12 +75,25 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, num){
+  
+  function home(){
+    let score1 = 0;
+      for(let i = 0; i < num; i++){
+    score1 = score1 + callback();
+  }
+  return score1
 }
-
+  function away(){
+    let score2 = 0;
+    for(let i = 0; i < num; i++){
+    score2 = score2 + callback();
+  }
+  return score2
+}
+  return `Home: ${home()}, Away: ${away()}`
+}
+console.log(finalScore(inning,9))
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
